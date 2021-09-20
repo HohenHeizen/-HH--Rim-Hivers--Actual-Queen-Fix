@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<FactionDef ParentName="FactionBase" Name="HiverFactionBase" Abstract="True">
+		<pawnSingular>hiver</pawnSingular>
+		<pawnsPlural>hivers</pawnsPlural>
+		<categoryTag>Tribal</categoryTag>
+		<listOrderPriority>40</listOrderPriority>
+		<settlementGenerationWeight>1</settlementGenerationWeight>
+		<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		<!-- <startingGoodwill>0</startingGoodwill> -->
+		<!-- <naturalColonyGoodwill>25~50</naturalColonyGoodwill> -->
+		<canMakeRandomly>true</canMakeRandomly>
+		<canStageAttacks>true</canStageAttacks>
+		<factionIconPath>WorldIcon/HiverTribal</factionIconPath>
+		<geneticVariance>0.1</geneticVariance>
+		<factionNameMaker>NamerFactionHivers</factionNameMaker>
+		<settlementNameMaker>NamerSettlementTribal</settlementNameMaker>
+		<techLevel>Medieval</techLevel>
+		<allowedCultures>
+			<li>Corunan</li>
+		</allowedCultures>
+		<disallowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudism</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Blindsight</li>
+		</disallowedMemes>
+		<disallowedPrecepts>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudity_Male_CoveringAnythingButGroinDisapproved</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Nudity_Female_CoveringAnythingButGroinDisapproved</li>
+		</disallowedPrecepts>
+		<structureMemeWeights>
+			<Structure_TheistEmbodied MayRequire="Ludeon.RimWorld.Ideology">1</Structure_TheistEmbodied>
+			<Structure_TheistAbstract MayRequire="Ludeon.RimWorld.Ideology">1</Structure_TheistAbstract>
+			<Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">3</Structure_Ideological>
+			<Structure_Archist MayRequire="Ludeon.RimWorld.Ideology">2</Structure_Archist>
+			<Structure_OriginChristian MayRequire="Ludeon.RimWorld.Ideology">0</Structure_OriginChristian>
+			<Structure_OriginIslamic MayRequire="Ludeon.RimWorld.Ideology">0</Structure_OriginIslamic>
+			<Structure_OriginHindu MayRequire="Ludeon.RimWorld.Ideology">0</Structure_OriginHindu>
+			<Structure_OriginBuddhist MayRequire="Ludeon.RimWorld.Ideology">0</Structure_OriginBuddhist>
+		</structureMemeWeights>
+		<backstoryFilters>
+			<li>
+				<categories>
+					<li>HiveBackstoryPrince</li>
+					<li>HiveBackstoryWorker</li>
+					<li>HiveBackstoriesSoldier</li>
+					<li>HiveBackstoriesQueen</li>
+				</categories>
+			</li>
+		</backstoryFilters>
+		<leaderTitle>hiver queen</leaderTitle>
+		<caravanTraderKinds>
+			<li>Caravan_Neolithic_BulkGoods</li>
+			<li>Caravan_Neolithic_WarMerchant</li>
+			<li>Caravan_Neolithic_ShamanMerchant</li>
+		</caravanTraderKinds>
+		<visitorTraderKinds>
+			<li>Visitor_Neolithic_Standard</li>
+		</visitorTraderKinds>
+		<baseTraderKinds>
+			<li>Base_Neolithic_Standard</li>
+		</baseTraderKinds>
+		<allowedArrivalTemperatureRange>-40~45</allowedArrivalTemperatureRange>
+		<raidCommonalityFromPointsCurve>
+			<points>
+				<li>(0, 1)</li>
+				<!--Constant 1 at all points levels-->
+			</points>
+		</raidCommonalityFromPointsCurve>
+		<raidLootMaker>HiverRaidLootMaker</raidLootMaker>
+		<maxPawnCostPerTotalPointsCurve>
+			<points>
+				<li>(0,35)</li>
+				<li>(70, 50)</li>
+				<li>(800, 100)</li>
+				<li>(1300, 150)</li>
+				<li>(100000, 10000)</li>
+			</points>
+		</maxPawnCostPerTotalPointsCurve>
+		<settlementTexturePath>World/WorldObjects/TribalSettlement</settlementTexturePath>
+	</FactionDef>
+	<FactionDef ParentName="HiverFactionBase">
+		<defName>HiverCivil</defName>
+		<label>civil hivers</label>
+		<description>This faction is a collective of friendly hivers, insect like humanoids that serve their Queen, who controls her subjects via pheromones. Occasionally hivers may break away or be exiled from the hive, and become free-thinking individuals.\nDespite the hivers earning the moniker of "stick-men", they are not to be underestimated as they use their large numbers, clever ingenuity, and under-hand tactics to their advantage.\n\nThis particular colony is more than willing to trade with outsiders, seeing commerce as the most conductive way of survival - and their human neighbors as a source of advancement.</description>
+		<!--HH Fixes -->
+		<leaderForceGenerateNewPawn>true</leaderForceGenerateNewPawn>
+		<fixedLeaderKinds>
+			<li>Hiver_Queen_Civil</li>
+		</fixedLeaderKinds>
+		<!--HH Fixes -->
+		<colorSpectrum>
+			<li>(0.80, 0.60, 0.30)</li>
+			<li>(0.95, 0.75, 0.45)</li>
+		</colorSpectrum>
+		<requiredMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Loyalist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Collectivist</li>
+		</requiredMemes>
+		<disallowedMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+		</disallowedMemes>
+		<pawnGroupMakers>
+			<li>
+				<!-- Normal fights, mixed -->
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<Hiver_Worker>6</Hiver_Worker>
+					<Hiver_Soldier>20</Hiver_Soldier>
+					<Hiver_Soldier_Archer>12</Hiver_Soldier_Archer>
+					<Hiver_Soldier_Heavy>6</Hiver_Soldier_Heavy>
+					<Hiver_Prince>2</Hiver_Prince>
+				</options>
+			</li>
+			<li>
+				<!-- Normal fights, melee-only -->
+				<kindDef>Combat</kindDef>
+				<commonality>40</commonality>
+				<options>
+					<Hiver_Soldier>25</Hiver_Soldier>
+					<Hiver_Soldier_Heavy>6</Hiver_Soldier_Heavy>
+				</options>
+			</li>
+			<li>
+				<!-- Normal fights, ranged focused -->
+				<kindDef>Combat</kindDef>
+				<commonality>50</commonality>
+				<options>
+					<Hiver_Worker>16</Hiver_Worker>
+					<Hiver_Soldier_Archer>12</Hiver_Soldier_Archer>
+				</options>
+			</li>
+			<li>
+				<!-- Elite hunter squad -->
+				<kindDef>Combat</kindDef>
+				<commonality>15</commonality>
+				<options>
+					<Hiver_Soldier_Archer>6</Hiver_Soldier_Archer>
+					<Hiver_Soldier_Heavy>12</Hiver_Soldier_Heavy>
+					<Hiver_Prince>2</Hiver_Prince>
+				</options>
+			</li>
+			<li>
+				<!-- Normal fights, breach capable -->
+				<kindDef>Combat</kindDef>
+				<commonality>5</commonality>
+				<options>
+					<Breach_Drone>5</Breach_Drone>
+					<Hiver_Worker>6</Hiver_Worker>
+					<Hiver_Soldier>20</Hiver_Soldier>
+					<Hiver_Soldier_Archer>12</Hiver_Soldier_Archer>
+					<Hiver_Soldier_Heavy>6</Hiver_Soldier_Heavy>
+					<Hiver_Prince>2</Hiver_Prince>
+				</options>
+			</li>
+			<li>
+				<!-- Peaceful -->
+				<kindDef>Peaceful</kindDef>
+				<options>
+					<Hiver_Worker>12</Hiver_Worker>
+					<Hiver_Soldier>6</Hiver_Soldier>
+					<Hiver_Soldier_Archer>2</Hiver_Soldier_Archer>
+					<Hiver_Prince>2</Hiver_Prince>
+				</options>
+			</li>
+			<li>
+				<kindDef>Trader</kindDef>
+				<traders>
+					<Hiver_Caravan_Prince>1</Hiver_Caravan_Prince>
+				</traders>
+				<carriers>
+					<Horse>7</Horse>
+					<Muffalo>6</Muffalo>
+					<Donkey>5.5</Donkey>
+					<Yak>5</Yak>
+					<Dromedary>4</Dromedary>
+					<Alpaca>2.5</Alpaca>
+					<Bison>2</Bison>
+					<Elephant>1</Elephant>
+				</carriers>
+				<guards>
+					<Hiver_Caravan_Guard>7</Hiver_Caravan_Guard>
+					<Hiver_Soldier_Heavy>4</Hiver_Soldier_Heavy>
+				</guards>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<Hiver_Worker>12</Hiver_Worker>
+					<Hiver_Soldier>10</Hiver_Soldier>
+					<Hiver_Soldier_Archer>8</Hiver_Soldier_Archer>
+					<Hiver_Soldier_Heavy>6</Hiver_Soldier_Heavy>
+					<Hiver_Prince>5</Hiver_Prince>
+					<Hiver_Queen_Civil>1</Hiver_Queen_Civil>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Miners</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Miner>1</Miner>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Hunters</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Hunter>1</Hunter>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Loggers</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Logger>1</Logger>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Farmers</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Farmer>1</Farmer>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>40</configurationListOrderPriority>
+	</FactionDef>
+	<FactionDef ParentName="HiverFactionBase">
+		<defName>HiverSavage</defName>
+		<label>savage-hivers</label>
+		<description>This faction is a colony of militaristic Hivers, insect like humanoids who fiercely serve under the command of their Queen, who controls them via pheromones. Very rarely, these hivers may break away and become free-thinking brutal individuals.\nThese hivers are well-versed in warfare and tactical advantages, their most common tactic is using their weak as fodder to overwhelm and exhaust the enemy, then sending in their battle-drones to finish the assault.\n\nThis particular colony is completely and utterly hostile, seeing the world as having two sides - themselves, and the enemy.</description>
+		<!--HH Fixes -->
+		<leaderForceGenerateNewPawn>true</leaderForceGenerateNewPawn>
+		<fixedLeaderKinds>
+			<li>Hiver_Queen_South</li>
+		</fixedLeaderKinds>
+		<!--HH Fixes -->
+		<colorSpectrum>
+			<li>(0.80, 0.20, 0.50)</li>
+			<li>(0.95, 0.25, 0.62)</li>
+		</colorSpectrum>
+		<requiredMemes>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">Cannibal</li>
+		</requiredMemes>
+		<factionIconPath>WorldIcon/HiverSavage</factionIconPath>
+		<factionNameMaker>NamerFactionHiversSavage</factionNameMaker>
+		<permanentEnemy>true</permanentEnemy>
+    <hostileToFactionlessHumanlikes>true</hostileToFactionlessHumanlikes>
+		<pawnGroupMakers>
+			<li>
+				<!-- Normal fights -->
+				<kindDef>Combat</kindDef>
+				<commonality>100</commonality>
+				<options>
+					<Hiver_Worker_South>50</Hiver_Worker_South>
+					<Hiver_Soldier_South>40</Hiver_Soldier_South>
+					<Hiver_Soldier_Heavy_South>30</Hiver_Soldier_Heavy_South>
+					<Hiver_Archer_Heavy_South>25</Hiver_Archer_Heavy_South>
+					<Hiver_Prince_South>20</Hiver_Prince_South>
+				</options>
+			</li>
+			<li>
+				<!-- Normal fights, ranged focused -->
+				<kindDef>Combat</kindDef>
+				<commonality>40</commonality>
+				<options>
+					<Hiver_Worker_South>40</Hiver_Worker_South>
+					<Hiver_Archer_Heavy_South>25</Hiver_Archer_Heavy_South>
+				</options>
+			</li>
+			<li>
+				<!-- Normal fights, melee-only -->
+				<kindDef>Combat</kindDef>
+				<commonality>40</commonality>
+				<options>
+					<Hiver_Worker_South>30</Hiver_Worker_South>
+					<Hiver_Soldier_Heavy_South>15</Hiver_Soldier_Heavy_South>
+				</options>
+			</li>
+			<li>
+				<!-- Elite extermination squad -->
+				<kindDef>Combat</kindDef>
+				<commonality>20</commonality>
+				<options>
+					<Hiver_Soldier_Heavy_South>30</Hiver_Soldier_Heavy_South>
+					<Hiver_Archer_Heavy_South>25</Hiver_Archer_Heavy_South>
+					<Hiver_Prince_South>10</Hiver_Prince_South>
+				</options>
+			</li>
+			<li>
+				<!-- Zerg rush -->
+				<kindDef>Combat</kindDef>
+				<commonality>30</commonality>
+				<options>
+					<Hiver_Worker_South>50</Hiver_Worker_South>
+					<Hiver_Soldier_South>20</Hiver_Soldier_South>
+					<Hiver_Soldier_Heavy_South>10</Hiver_Soldier_Heavy_South>
+				</options>
+			</li>
+			<li>
+				<!-- Normal fights, breach capable -->
+				<kindDef>Combat</kindDef>
+				<commonality>5</commonality>
+				<options>
+					<Breach_Drone_South>6</Breach_Drone_South>
+					<Hiver_Worker_South>50</Hiver_Worker_South>
+					<Hiver_Soldier_South>40</Hiver_Soldier_South>
+					<Hiver_Soldier_Heavy_South>30</Hiver_Soldier_Heavy_South>
+					<Hiver_Archer_Heavy_South>25</Hiver_Archer_Heavy_South>
+					<Hiver_Prince_South>20</Hiver_Prince_South>
+				</options>
+			</li>
+			<li>
+				<!-- Zerg rush, breach capable -->
+				<kindDef>Combat</kindDef>
+				<commonality>30</commonality>
+				<options>
+					<Breach_Drone_South>4</Breach_Drone_South>
+					<Hiver_Worker_South>30</Hiver_Worker_South>
+					<Hiver_Soldier_South>20</Hiver_Soldier_South>
+					<Hiver_Soldier_Heavy_South>10</Hiver_Soldier_Heavy_South>
+				</options>
+			</li>
+			<li>
+				<kindDef>Settlement</kindDef>
+				<options>
+					<Hiver_Worker_South>12</Hiver_Worker_South>
+					<Hiver_Soldier_South>18</Hiver_Soldier_South>
+					<Hiver_Archer_Heavy_South>10</Hiver_Archer_Heavy_South>
+					<Hiver_Soldier_Heavy_South>14</Hiver_Soldier_Heavy_South>
+					<Hiver_Prince_South>5</Hiver_Prince_South>
+					<Hiver_Queen_South>1</Hiver_Queen_South>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Miners</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Miner>1</Miner>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Hunters</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Hunter>1</Hunter>
+				</options>
+			</li>
+			<li MayRequire="Ludeon.RimWorld.Ideology">
+				<kindDef>Loggers</kindDef>
+				<commonality>1</commonality>
+				<options>
+					<Logger>1</Logger>
+				</options>
+			</li>
+		</pawnGroupMakers>
+		<maxConfigurableAtWorldCreation>9999</maxConfigurableAtWorldCreation>
+		<configurationListOrderPriority>40</configurationListOrderPriority>
+	</FactionDef>
+	<ThingSetMakerDef>
+		<defName>HiverRaidLootMaker</defName>
+		<root Class="ThingSetMaker_MarketValue">
+			<fixedParams>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+						<li>Gold</li>
+						<li>Silver</li>
+						<li>Jade</li>
+						<li>Pemmican</li>
+						<li>MedicineHerbal</li>
+						<li>ElephantTusk</li>
+					</thingDefs>
+				</filter>
+			</fixedParams>
+		</root>
+	</ThingSetMakerDef>
+</Defs>
