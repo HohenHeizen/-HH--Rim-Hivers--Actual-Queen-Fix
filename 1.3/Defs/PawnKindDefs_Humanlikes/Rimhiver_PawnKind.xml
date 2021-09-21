@@ -640,7 +640,7 @@
 		<defName>Hiver_Queen_South</defName>
 		<label>hiver queen</label>
 		<apparelColor>(126,34,197)</apparelColor>
-				<labelPlural>queen</labelPlural>
+		<labelPlural>queen</labelPlural>
 		<race>Hiver_Queen_South</race>
 		<factionLeader>true</factionLeader>
 		<isFighter>false</isFighter>

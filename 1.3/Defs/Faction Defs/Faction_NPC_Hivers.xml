@@ -248,7 +248,7 @@
 		<factionIconPath>WorldIcon/HiverSavage</factionIconPath>
 		<factionNameMaker>NamerFactionHiversSavage</factionNameMaker>
 		<permanentEnemy>true</permanentEnemy>
-    <hostileToFactionlessHumanlikes>true</hostileToFactionlessHumanlikes>
+		<hostileToFactionlessHumanlikes>true</hostileToFactionlessHumanlikes>
 		<pawnGroupMakers>
 			<li>
 				<!-- Normal fights -->

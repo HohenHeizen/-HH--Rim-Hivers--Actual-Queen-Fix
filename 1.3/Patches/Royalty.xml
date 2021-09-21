@@ -1,92 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-  <Operation Class="PatchOperationFindMod">
-    <mods>
-      <li>Royalty</li>
-    </mods>
-
-    <match Class="PatchOperationAdd">
-      <xpath>/Defs/FactionDef[defName="Empire"]/permanentEnemyToEveryoneExcept</xpath>
-
-      <value>
-        <li>HivePlayer</li>
-      </value>
-    </match>
-  </Operation>
-
-    <!-- Civil Hivers -->  
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>Royalty</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <operations>
-            <!-- Guests -->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_IsSet"]/node[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
-                    <value>
-                        <li>
-                            <factionDef>HiverCivil</factionDef>
-                            <pawnKinds>
-                                <li>Hiver_Queen_Civil</li>
-                                <li>Hiver_Prince</li>
-                            </pawnKinds>
-                        </li>  
-                    </value>
-                </li>
-                <!-- Mercenaries -->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
-                    <value>
-                        <li>
-                            <factionDef>HiverCivil</factionDef>
-                            <pawnKinds>
-                                <li>Hiver_Soldier</li>
-                                <li>Hiver_Soldier_Archer</li>
-                                <li>Hiver_Soldier_Heavy</li>
-                            </pawnKinds>
-                        </li>  
-                    </value>
-                </li>
-            </operations>
-        </match>
-    </Operation>
-	
-    <!-- Savage Hivers -->	
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>Royalty</li>
-        </mods>
-        <match Class="PatchOperationSequence">
-            <operations>
-            <!-- Guests -->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_IsSet"]/node[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
-                    <value>
-                        <li>
-                            <factionDef>HiverSavage</factionDef>
-                            <pawnKinds>
-                                <li>Hiver_Queen_South</li>
-                                <li>Hiver_Prince_South</li>
-                            </pawnKinds>
-                        </li>  
-                    </value>
-                </li>
-                <!-- Mercenaries -->
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
-                    <value>
-                        <li>
-                            <factionDef>HiverCivil</factionDef>
-                            <pawnKinds>
-                                <li>Hiver_Soldier_South</li>
-                                <li>Hiver_Archer_Heavy_South</li>
-                                <li>Hiver_Soldier_Heavy_South</li>
-                            </pawnKinds>
-                        </li>  
-                    </value>
-                </li>
-            </operations>
-        </match>
-    </Operation>		
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="Empire"]/permanentEnemyToEveryoneExcept</xpath>
+			<value>
+				<li>HivePlayer</li>
+			</value>
+		</match>
+	</Operation>
+	<!-- Civil Hivers -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!-- Guests -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_IsSet"]/node[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
+					<value>
+						<li>
+							<factionDef>HiverCivil</factionDef>
+							<pawnKinds>
+								<li>Hiver_Queen_Civil</li>
+								<li>Hiver_Prince</li>
+							</pawnKinds>
+						</li>
+					</value>
+				</li>
+				<!-- Mercenaries -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
+					<value>
+						<li>
+							<factionDef>HiverCivil</factionDef>
+							<pawnKinds>
+								<li>Hiver_Soldier</li>
+								<li>Hiver_Soldier_Archer</li>
+								<li>Hiver_Soldier_Heavy</li>
+							</pawnKinds>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	<!-- Savage Hivers -->
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<!-- Guests -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_IsSet"]/node[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
+					<value>
+						<li>
+							<factionDef>HiverSavage</factionDef>
+							<pawnKinds>
+								<li>Hiver_Queen_South</li>
+								<li>Hiver_Prince_South</li>
+							</pawnKinds>
+						</li>
+					</value>
+				</li>
+				<!-- Mercenaries -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/QuestScriptDef/root[@Class="QuestNode_Sequence"]/nodes/li[@Class="QuestNode_GetRandomPawnKindForFaction"]/choices</xpath>
+					<value>
+						<li>
+							<factionDef>HiverCivil</factionDef>
+							<pawnKinds>
+								<li>Hiver_Soldier_South</li>
+								<li>Hiver_Archer_Heavy_South</li>
+								<li>Hiver_Soldier_Heavy_South</li>
+							</pawnKinds>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
 </Patch>
